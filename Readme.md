@@ -74,7 +74,7 @@ function reducer(state: State, action: AppendAction | RemoveAction): State {
 
 ```
 
-In this example, we dispatch REMOVE_LINE to remove the line at an index, ADD_LINE to append to the list, and INIT to initialze an empty list. There are three ways this list can change. Now suppose I create the following saga to save the list:
+In this example, we dispatch REMOVE_LINE to remove the line at an index, ADD_LINE to append to the list, and INIT to initialize an empty list. There are three ways this list can change. Now suppose I create the following saga to save the list:
 
 ```
 type SaveAction = {
@@ -190,8 +190,8 @@ function* saveList(payload: SaveAction) {
     yield runWhile<State>()
         .saga(function* () {
             yield call(
-                fetch, 
-                { 
+                fetch,
+                {
                     method: 'POST',
                     path: '/api/list',
                     data: JSON.stringify({
@@ -200,7 +200,7 @@ function* saveList(payload: SaveAction) {
                     })
                 }
             );
-                
+
             const res1 = yield call(someAsyncThing);
             const res2 = yield call(someOtherAsyncThing, res1);
             yield put({ type: 'SOME_ACTION', result: res2 });
@@ -261,4 +261,4 @@ Then visit localhost:9876 in the browser of your choice.
 Code contributions and improvements by the community are welcomed!
 See the LICENSE file for current open-source licensing and use information.
 
-Before we can accept pull requests from contributors, we require a signed [Contributor License Agreement (CLA)](http://tableau.github.io/contributing.html),
+Before we can accept pull requests from contributors, we require a signed [Contributor License Agreement (CLA)](http://tableau.github.io/contributing.html)
